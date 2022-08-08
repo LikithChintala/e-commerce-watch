@@ -87,7 +87,7 @@
                 if(loggedIn !== ""){
                   window.location.href = './home.html'
                 }
-        
+                
         })
 
    
@@ -97,9 +97,9 @@
                 var signup_email = document.getElementById('signup_email');
                 var signup_password = document.getElementById('signup_password');
                 var signup_cnfrm_password = document.getElementById("signup_cnfrm_password");
-                // var lowerCaseLetters = /[a-z]/g;
-                // var upperCaseLetters = /[A-Z]/g;
-                // var numbers = /[0-9]/g;
+                var lowerCaseLetters = /[a-z]/g;
+                var upperCaseLetters = /[A-Z]/g;
+                var numbers = /[0-9]/g;
 
                 if (signup_email.value.length == 0) {
                     toastr.warning('Please fill in email')
@@ -112,19 +112,19 @@
                     toastr.warning('Please fill in email and password')
 
                 }
-                // else if(signup_password.value.length < 8){
-                //     alert('Min of 8');
+                else if(signup_password.value.length < 8){
+                    alert('Min of 8');
 
-                // }else if(!signup_password.value.match(numbers)){
-                //     alert('please add 1 number');
+                }else if(!signup_password.value.match(numbers)){
+                    alert('please add 1 number');
 
-                // }else if(!signup_password.value.match(upperCaseLetters)){
-                //     alert('please add 1 uppercase letter');
+                }else if(!signup_password.value.match(upperCaseLetters)){
+                    alert('please add 1 uppercase letter');
 
-                // }else if(!signup_password.value.match(lowerCaseLetters)){
-                //     alert('please add 1 lovercase letter');
+                }else if(!signup_password.value.match(lowerCaseLetters)){
+                    alert('please add 1 lovercase letter');
 
-                // }
+                }
                 else if (signup_password.value !== signup_cnfrm_password.value) {
                     toastr.warning("Password doesn't match.")
 

@@ -41,6 +41,8 @@
                 <a href="cart.html">
                   <img src="./images/shopping-cart.png" alt="Shopping-cart" height="24" width="24"/>
                 </a>
+                <span id="cart_count"></span>
+
               </li>
               <li>
                 <div onclick="logOut()">
@@ -146,7 +148,10 @@ window.addEventListener('load', function () {
                 let loggedIn =  localStorage.getItem('loggedInUser');
                 var userName = loggedIn.split('@')[0];
                 document.getElementById("userName").innerHTML = userName;
-
+                let userData = JSON.parse(localStorage.getItem('userData')) || [];
+                let cartItems = userData.length && JSON.parse(localStorage.getItem('userData')).find(o => o.email == loggedIn)?.cart;
+                console.log("cart items",cartItems)
+                document.getElementById("cart_count").innerHTML = cartItems?.length;
         
         })
                function logOut() {

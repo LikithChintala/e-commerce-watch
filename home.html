@@ -41,6 +41,8 @@
                   <a href="cart.html">
                     <img src="./images/shopping-cart.png" alt="Shopping-cart" height="24" width="24"/>
                   </a>
+                  <span id="cart_count"></span>
+
                 </li>
                 <li>
                   <div onclick="logOut()">
@@ -69,6 +71,11 @@
       
               <div id="mens" class="tab__body">
                 <div class="container">
+                  <div class="watch__card">
+                    <img src="./images/Demo.png" alt="watch" height="250"/>
+                    <h4>Citizen Promaster Dive <br>Automatic<br><span>$200</span></h4>
+                    <div class="quick__view"><a href="./quick-view.html">Quick view</a></div>
+                </div>
                     <div class="watch__card">
                         <img src="./images/Demo.png" alt="watch" height="250"/>
                         <h4>Citizen Promaster Dive <br>Automatic<br><span>$300</span></h4>
@@ -79,11 +86,7 @@
                         <h4>Citizen Promaster Dive <br>Automatic<br><span>$400</span></h4>
                         <div class="quick__view"><a href="./quick-view.html">Quick view</a></div>
                     </div>
-                    <div class="watch__card">
-                        <img src="./images/Demo.png" alt="watch" height="250"/>
-                        <h4>Citizen Promaster Dive <br>Automatic<br><span>$600</span></h4>
-                        <div class="quick__view"><a href="./quick-view.html">Quick view</a></div>
-                    </div>
+                   
                     
                 </div>
                  
@@ -106,7 +109,10 @@
                 let loggedIn =  localStorage.getItem('loggedInUser');
                 var userName = loggedIn.split('@')[0];
                 document.getElementById("userName").innerHTML = userName;
-
+                let userData = JSON.parse(localStorage.getItem('userData')) || [];
+                let cartItems = userData.length && JSON.parse(localStorage.getItem('userData')).find(o => o.email == loggedIn)?.cart;
+                console.log("cart items",cartItems)
+                document.getElementById("cart_count").innerHTML = cartItems?.length;
         
         })
 
