@@ -113,16 +113,16 @@
 
                 }
                 else if(signup_password.value.length < 8){
-                    alert('Min of 8');
+                  toastr.warning('Min of 8');
 
                 }else if(!signup_password.value.match(numbers)){
-                    alert('please add 1 number');
+                  toastr.warning('please add 1 number');
 
                 }else if(!signup_password.value.match(upperCaseLetters)){
-                    alert('please add 1 uppercase letter');
+                  toastr.warning('please add 1 uppercase letter');
 
                 }else if(!signup_password.value.match(lowerCaseLetters)){
-                    alert('please add 1 lovercase letter');
+                  toastr.warning('please add 1 lovercase letter');
 
                 }
                 else if (signup_password.value !== signup_cnfrm_password.value) {

@@ -19,7 +19,7 @@
 
         <nav class="navigation">
             <a href="./home.html" class="brand-name">
-              MacroSoft
+              Watch zone
             </a>
             <button
               class="hamburger"
@@ -172,9 +172,9 @@
           let cartItems = userData.length && JSON.parse(localStorage.getItem('userData')).find(o => o.email == loggedIn)?.cart;
           console.log("cart items",cartItems)
           cartItems.push({
-            imageUrl:'',
-            name:'',
-            price:'',
+            imageUrl:'images/skagen_logo.png',
+            name:'Grenen Lille Three-Hand Date Sand Eco Leather Watch',
+            price:'300',
           })
           let temp = [];
           JSON.parse(localStorage.getItem('userData')).forEach(o => {

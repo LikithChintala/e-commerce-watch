@@ -10,7 +10,7 @@
 
         <nav class="navigation">
             <a href="./home.html" class="brand-name">
-              MacroSoft
+              Watch zone
             </a>
             <button
               class="hamburger"
@@ -56,7 +56,7 @@
         <main>
             
             <div class="cart-page__container">
-                <div style="flex: 2 1 auto;">
+                <div class="cart-page-left__container">
                     <h2>Purchase processing</h2>
                     <ul class="breadcrumb">
                         <li><a href="home.html">Home</a></li>
@@ -138,8 +138,23 @@
                     </div>    
                    
                 </div>
-                <div style="flex:1 1 auto;">
+                <div class="cart-page-right__container">
                     <h2>Your cart</h2>
+                    <div id="cart_items" >
+                        <!-- <div class="cart-item__container">
+                          <div>
+                            <img src="images/skagen_logo.png" alt="skagen logo" class="cart-brand-logo">
+                          </div>
+                          <div class="cart_details">
+                            Name
+                            <div>$3000</div>
+                            <div class="cart__remove">
+                              remove
+                            </div>
+                          </div>
+                          
+                        </div> -->
+                    </div>
                 </div>
             </div>
         </main>
@@ -152,6 +167,17 @@ window.addEventListener('load', function () {
                 let cartItems = userData.length && JSON.parse(localStorage.getItem('userData')).find(o => o.email == loggedIn)?.cart;
                 console.log("cart items",cartItems)
                 document.getElementById("cart_count").innerHTML = cartItems?.length;
+
+                var nHTML = '';
+                let e =document.getElementById("cart_items")
+
+                cartItems.forEach(element => {
+                  nHTML = '  <div class="cart-item__container"><div><img src="'+ element?.imageUrl +'" alt="skagen logo" class="cart-brand-logo"></div><div class="cart_details">'+ element?.name +'<div>$'+ element?.price +'</div><div class="cart__remove">remove</div></div> </div>';
+                  // document.getElementById("cart_items").innerHTML =e
+                  e.insertAdjacentHTML('beforeend', nHTML);
+                });
+
+
         
         })
                function logOut() {
